@@ -3,4 +3,5 @@
  */
 public class testJavaClass {
     int test;
+    int test2;
 }
