@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by K on 2016-08-28.
@@ -67,7 +68,7 @@ public class Question1Test {
     }
 
     private char[] randomString(){
-        Random rand = new Random(System.currentTimeMillis());
+        Random rand = ThreadLocalRandom.current();
         int size = rand.nextInt(400);
         char[] result = new char[size];
 
