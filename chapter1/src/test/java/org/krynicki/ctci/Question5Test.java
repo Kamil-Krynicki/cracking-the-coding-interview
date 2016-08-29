@@ -8,7 +8,7 @@ import static org.testng.Assert.*;
 /**
  * Created by K on 2016-08-28.
  */
-public class Question5Test {
+public class Question5Test extends AbstractChapter1Test {
 
     private  static  Question5 q = new Question5();
 

@@ -12,7 +12,7 @@ import static org.testng.Assert.*;
 /**
  * Created by K on 2016-08-28.
  */
-public class Question2Test {
+public class Question2Test extends AbstractChapter1Test {
     private static Question2 q = new Question2();
 
     @Test
@@ -64,43 +64,4 @@ public class Question2Test {
             Assert.assertFalse(q.isPermutationDestructive(value, mixup(value)));
         }
     }
-
-    private char[] mixup(char[] in){
-        char[] result = in.clone();
-
-        for (int i = 0; i < in.length; i++) {
-            result[i]++;
-        }
-
-        return result;
-    }
-
-    private char[] permute(char[] in){
-        char[] result = in.clone();
-        Random rand = ThreadLocalRandom.current();
-        char tmp;
-        int index;
-
-        for (int i = in.length - 1; i > 0; i--) {
-            index = rand.nextInt(i + 1);
-            tmp = result[index];
-            result[index] = result[i];
-            result[i] = tmp;
-        }
-
-        return result;
-    }
-
-    private char[] randomString(){
-        Random rand = ThreadLocalRandom.current();
-        int size = rand.nextInt(400) + 1;
-        char[] result = new char[size];
-
-        for(int i=0;i<size;i++) {
-            result[i] = (char) rand.nextInt(254);
-        }
-
-        return result;
-    }
-
 }

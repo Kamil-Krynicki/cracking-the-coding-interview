@@ -1,5 +1,7 @@
 package org.krynicki.ctci;
 
+import java.math.BigInteger;
+
 /**
  * Created by K on 2016-08-28.
  */
@@ -12,33 +14,24 @@ public class Question5 {
 
         if(longer.length-shorter.length > 1) return false;
 
-        if(longer.length == shorter.length) {
-            boolean changeDetected = false;
+        int shorterIndex = 0;
+        int longerIndex = 0;
 
-            for(int i=0; i< in1.length; i++) {
-                if(in1[i]!=in2[i]){
-                    if(!changeDetected) {
-                        changeDetected = true;
-                    }
-                    else {
-                        return false;
-                    }
+        boolean changeDetected = false;
+
+        while(shorterIndex < shorter.length && longerIndex < longer.length) {
+            if(shorter[shorterIndex]!=longer[longerIndex]) {
+                if(changeDetected) return false;
+
+                changeDetected = true;
+
+                if(longer.length != shorter.length) {
+                    shorterIndex--; //neat trick!
                 }
             }
-        }
-        else {
-            int letterFound = 0;
 
-            for(int i=0; i< shorter.length; i++) {
-                if(shorter[i]!=longer[i + letterFound]){
-                    if(i==0) {
-                        i++;
-                    }
-                    else {
-                        return false;
-                    }
-                }
-            }
+            shorterIndex++;
+            longerIndex++;
         }
 
         return true;

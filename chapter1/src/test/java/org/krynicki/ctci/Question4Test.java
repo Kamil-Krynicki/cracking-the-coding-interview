@@ -10,7 +10,7 @@ import static org.testng.Assert.*;
 /**
  * Created by K on 2016-08-28.
  */
-public class Question4Test {
+public class Question4Test extends AbstractChapter1Test {
 
     private static Question4 q = new Question4();
 
