@@ -13,7 +13,15 @@ public class Question7Test extends AbstractChapter1Test {
 
     @Test
     public void testRotate() throws Exception {
-        int[][] test;
+        q.rotate(null);
+        q.rotate(new int[0][0]);
+        q.rotate(new int[2][3]);
+
+
+        int[][] matrix = new int[][] {{1, 2 , 3}, {3, 5, 8}, {4, 6, 9}};
+        int[][] matrix2 = q.rotate(matrix);
+
+
     }
 
 }
