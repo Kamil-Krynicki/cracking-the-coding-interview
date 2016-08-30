@@ -11,6 +11,7 @@ public class Question7Test extends AbstractChapter1Test {
 
     private static Question7 q = new Question7();
 
+
     @Test
     public void testRotate() throws Exception {
         q.rotate(null);
