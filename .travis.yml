@@ -1,6 +1,4 @@
 language:
   java
 script:
-  - sudo mvn clean package
-  - sudo mvn install
-  - sudo mvn test cobertura:cobertura
+  mvn clean package test cobertura:cobertura
