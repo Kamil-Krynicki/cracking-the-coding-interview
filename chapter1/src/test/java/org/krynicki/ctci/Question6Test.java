@@ -25,7 +25,7 @@ public class Question6Test extends AbstractChapter1Test {
         Assert.assertEquals(q.compress(alphabet()), alphabet());
 
         ArrayAsserts.assertArrayEquals(q.compress("aabcccccaaa".toCharArray()), "a2b1c5a3".toCharArray() );
-        ArrayAsserts.assertArrayEquals(q.compress("aAbccccCaaa".toCharArray()), "a1A1b1c4C1A1a2".toCharArray());
+        ArrayAsserts.assertArrayEquals(q.compress("aAbccCcCaaa".toCharArray()), "aAbccCcCaaa".toCharArray());
     }
 
 }
