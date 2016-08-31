@@ -12,18 +12,24 @@ public class Question8 {
         if (matrix == null) return null;
         if (matrix.length == 0) return matrix;
 
+        boolean change = false;
+
         for (int i = 0; i < matrix.length; i++)
             for (int j = 0; j < matrix[0].length; j++)
                 if (matrix[i][j] == 0) {
                     setColumn(matrix, j, Integer.MIN_VALUE);
                     setRow(matrix, i, Integer.MIN_VALUE);
+                    change = true;
                 }
 
-        for (int i = 0; i < matrix.length; i++)
-            for (int j = 0; j < matrix[0].length; j++)
-                if (matrix[i][j] == Integer.MIN_VALUE) {
-                    matrix[i][j] = 0;
-                }
+        if(change){
+            for (int i = 0; i < matrix.length; i++)
+                for (int j = 0; j < matrix[0].length; j++)
+                    if (matrix[i][j] == Integer.MIN_VALUE) {
+                        matrix[i][j] = 0;
+                    }
+        }
+
 
         return matrix;
     }
