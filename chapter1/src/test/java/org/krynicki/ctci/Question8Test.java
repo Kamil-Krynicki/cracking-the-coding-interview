@@ -62,7 +62,7 @@ public class Question8Test extends AbstractChapter1Test{
     }
 
     @Test
-    public void tesSpeed() throws Exception {
+    public void testSpeed() throws Exception {
         //local experiments - cute x4 faster
         Random rand = ThreadLocalRandom.current();
         int[][] matrix = randMatrix(5000, 5000);

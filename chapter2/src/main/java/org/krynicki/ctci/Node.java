@@ -1,3 +1,5 @@
+package org.krynicki.ctci;
+
 /**
  * Created by K on 2016-09-01.
  */
@@ -25,6 +27,16 @@ public class Node {
         Node node = (Node) o;
 
         return id == node.id;
+
+    }
+
+    public boolean deepEquals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Node node = (Node) o;
+
+        return id == node.id && next==null?node.next==null:next.equals(node.next);
 
     }
 
