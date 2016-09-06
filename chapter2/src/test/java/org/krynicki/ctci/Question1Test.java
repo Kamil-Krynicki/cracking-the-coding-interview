@@ -18,9 +18,9 @@ public class Question1Test extends AbstractTestHelper{
 
     @Test
     public void testVariants() throws Exception {
-        Assert.assertTrue(q.removeDups(getNodeList(new int[]{2})).deepEquals(getNodeList(new int[]{2})));
-        Assert.assertTrue(q.removeDups(getNodeList(new int[]{2, 3})).deepEquals(getNodeList(new int[]{2, 3})));
-        Assert.assertTrue(q.removeDups(getNodeList(new int[]{2, 2, 2})).deepEquals(getNodeList(new int[]{2})));
-        Assert.assertTrue(q.removeDups(getNodeList(new int[]{2, 3, 2})).deepEquals(getNodeList(new int[]{2, 3})));
+        Assert.assertTrue(q.removeDups(getNodeList(2)).deepEquals(getNodeList(2)));
+        Assert.assertTrue(q.removeDups(getNodeList(2, 3)).deepEquals(getNodeList(2, 3)));
+        Assert.assertTrue(q.removeDups(getNodeList(2, 2, 2)).deepEquals(getNodeList(2)));
+        Assert.assertTrue(q.removeDups(getNodeList(2, 3, 2)).deepEquals(getNodeList(2, 3)));
     }
 }
