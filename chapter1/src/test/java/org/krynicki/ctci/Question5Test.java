@@ -3,14 +3,12 @@ package org.krynicki.ctci;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 /**
  * Created by K on 2016-08-28.
  */
 public class Question5Test extends AbstractChapter1Test {
 
-    private  static  Question5 q = new Question5();
+    private static Question5 q = new Question5();
 
     @Test
     public void testNull() throws Exception {

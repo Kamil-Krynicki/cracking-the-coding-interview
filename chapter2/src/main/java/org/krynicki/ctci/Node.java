@@ -36,7 +36,7 @@ public class Node {
 
         Node node = (Node) o;
 
-        return id == node.id && next==null?node.next==null:next.equals(node.next);
+        return id == node.id && next == null ? node.next == null : next.equals(node.next);
 
     }
 

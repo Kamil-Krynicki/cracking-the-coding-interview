@@ -22,7 +22,7 @@ public class Question8 {
                     change = true;
                 }
 
-        if(change){
+        if (change) {
             for (int i = 0; i < matrix.length; i++)
                 for (int j = 0; j < matrix[0].length; j++)
                     if (matrix[i][j] == Integer.MIN_VALUE) {
@@ -34,13 +34,13 @@ public class Question8 {
         return matrix;
     }
 
-    private void setColumn(int[][] matrix, int column, int val){
+    private void setColumn(int[][] matrix, int column, int val) {
         for (int i = 0; i < matrix.length; i++) {
             matrix[i][column] = val;
         }
     }
 
-    private void setRow(int[][] matrix, int row, int val){
+    private void setRow(int[][] matrix, int row, int val) {
         for (int i = 0; i < matrix[row].length; i++) {
             matrix[row][i] = val;
         }
@@ -78,8 +78,7 @@ public class Question8 {
                     }
                 }
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.print("");
         }
 

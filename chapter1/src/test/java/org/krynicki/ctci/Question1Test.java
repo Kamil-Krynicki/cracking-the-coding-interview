@@ -3,9 +3,6 @@ package org.krynicki.ctci;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-
 /**
  * Created by K on 2016-08-28.
  */
@@ -41,7 +38,7 @@ public class Question1Test extends AbstractChapter1Test {
 
     @Test
     public void testIsUnique() throws Exception {
-        for(char[] cs:unique) {
+        for (char[] cs : unique) {
             Assert.assertTrue(q.isUnique(cs));
             Assert.assertTrue(q.isUniqueNoStructure(cs));
         }
@@ -49,7 +46,7 @@ public class Question1Test extends AbstractChapter1Test {
 
     @Test
     public void testIsNotUnique() throws Exception {
-        for(char[] cs:notUnique) {
+        for (char[] cs : notUnique) {
             Assert.assertFalse(q.isUnique(cs));
             Assert.assertFalse(q.isUniqueNoStructure(cs));
         }
@@ -60,7 +57,7 @@ public class Question1Test extends AbstractChapter1Test {
 
         char[] value;
 
-        for(int i=0;i<100;i++) {
+        for (int i = 0; i < 100; i++) {
             value = randomString();
 
             Assert.assertEquals(q.isUnique(value), q.isUniqueNoStructure(value));

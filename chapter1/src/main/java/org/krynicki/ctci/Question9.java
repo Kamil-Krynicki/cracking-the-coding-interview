@@ -5,7 +5,7 @@ package org.krynicki.ctci;
  */
 public class Question9 {
     // I knew this trick
-    public boolean isRotation(String s1, String s2){
+    public boolean isRotation(String s1, String s2) {
         return s1.concat(s1).contains(s2);
     }
 }

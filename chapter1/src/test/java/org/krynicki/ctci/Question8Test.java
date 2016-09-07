@@ -6,12 +6,10 @@ import org.testng.annotations.Test;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static org.testng.Assert.*;
-
 /**
  * Created by K on 2016-08-31.
  */
-public class Question8Test extends AbstractChapter1Test{
+public class Question8Test extends AbstractChapter1Test {
     private static Question8 q = new Question8();
 
 
@@ -25,7 +23,7 @@ public class Question8Test extends AbstractChapter1Test{
     @Test
     public void testZeroMatrixCuteZeroing() throws Exception {
         Random rand = ThreadLocalRandom.current();
-        int[][] matrix = randMatrix(rand.nextInt(10)+1, rand.nextInt(10)+1);
+        int[][] matrix = randMatrix(rand.nextInt(10) + 1, rand.nextInt(10) + 1);
         Assert.assertEquals(countZeros(matrix), 0);
 
         q.zeroMatrix(matrix);
@@ -36,7 +34,7 @@ public class Question8Test extends AbstractChapter1Test{
 
         q.zeroMatrix(matrix);
 
-        Assert.assertEquals(countZeros(matrix), matrix.length+matrix[0].length-1);
+        Assert.assertEquals(countZeros(matrix), matrix.length + matrix[0].length - 1);
     }
 
     @Test
@@ -49,7 +47,7 @@ public class Question8Test extends AbstractChapter1Test{
     @Test
     public void testZeroMatrixBaseZeroing() throws Exception {
         Random rand = ThreadLocalRandom.current();
-        int[][] matrix = randMatrix(rand.nextInt(10)+1, rand.nextInt(10)+1);
+        int[][] matrix = randMatrix(rand.nextInt(10) + 1, rand.nextInt(10) + 1);
         Assert.assertEquals(countZeros(matrix), 0);
 
         q.zeroMatrixCute(matrix);
@@ -58,7 +56,7 @@ public class Question8Test extends AbstractChapter1Test{
 
         matrix[rand.nextInt(matrix.length)][rand.nextInt(matrix[0].length)] = 0;
         q.zeroMatrixCute(matrix);
-        Assert.assertEquals(countZeros(matrix), matrix.length+matrix[0].length-1);
+        Assert.assertEquals(countZeros(matrix), matrix.length + matrix[0].length - 1);
     }
 
     @Test
@@ -81,12 +79,12 @@ public class Question8Test extends AbstractChapter1Test{
         t3 = System.currentTimeMillis();
 
         System.out.println("Empty Runs:");
-        System.out.println("- cute Matrix zero:"+ (t2-t1));
-        System.out.println("- norm Matrix zero:"+ (t3-t2));
+        System.out.println("- cute Matrix zero:" + (t2 - t1));
+        System.out.println("- norm Matrix zero:" + (t3 - t2));
 
         Assert.assertEquals(countZeros(matrix), 0);
 
-        for(int i=0;i<500;i++){
+        for (int i = 0; i < 500; i++) {
             matrix[rand.nextInt(matrix.length)][rand.nextInt(matrix[0].length)] = 0;
         }
 
@@ -101,30 +99,30 @@ public class Question8Test extends AbstractChapter1Test{
         t3 = System.currentTimeMillis();
 
         System.out.println("Hot Runs:");
-        System.out.println("- cute Matrix zero:"+ (t2-t1));
-        System.out.println("- norm Matrix zero:"+ (t3-t2));
+        System.out.println("- cute Matrix zero:" + (t2 - t1));
+        System.out.println("- norm Matrix zero:" + (t3 - t2));
     }
 
 
-    private int[][] randMatrix(int cols, int rows){
+    private int[][] randMatrix(int cols, int rows) {
         Random rand = ThreadLocalRandom.current();
         int[][] matrix = new int[cols][rows];
 
-        for(int i=0;i<matrix.length;i++)
-            for(int j=0;j<matrix[0].length;j++){
+        for (int i = 0; i < matrix.length; i++)
+            for (int j = 0; j < matrix[0].length; j++) {
                 {
-                    matrix[i][j] = rand.nextInt(100)+1;
+                    matrix[i][j] = rand.nextInt(100) + 1;
                 }
             }
 
         return matrix;
     }
 
-    private int countZeros(int[][] matrix){
+    private int countZeros(int[][] matrix) {
         int result = 0;
-        for(int i=0;i<matrix.length;i++)
-            for(int j=0;j<matrix[0].length;j++){
-                if(matrix[i][j]==0){
+        for (int i = 0; i < matrix.length; i++)
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 0) {
                     result++;
                 }
             }

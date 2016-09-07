@@ -9,8 +9,8 @@ import java.util.Set;
 public class Question1 {
 
     //simplistic O(n) solution, using sets. No tests, but looks solid!
-    public Node removeDups(Node root){
-        if(root==null) return null;
+    public Node removeDups(Node root) {
+        if (root == null) return null;
 
         Set<Node> buffer = new HashSet<Node>();
 
@@ -18,12 +18,11 @@ public class Question1 {
 
         buffer.add(root);
 
-        while(runner.next!=null){
-            if(!buffer.contains(runner.next)) {
+        while (runner.next != null) {
+            if (!buffer.contains(runner.next)) {
                 buffer.add(runner.next);
                 runner = runner.next;
-            }
-            else {
+            } else {
                 runner.next = runner.next.next;
             }
         }
@@ -32,19 +31,18 @@ public class Question1 {
     }
 
     //simplistic O(n) solution, using sets. No tests, but looks solid!
-    public Node removeDupsNoData(Node root){
-        if(root==null) return null;
+    public Node removeDupsNoData(Node root) {
+        if (root == null) return null;
 
         Node runner1 = root;
         Node runner2;
 
-        while(runner1!=null){
+        while (runner1 != null) {
             runner2 = runner1;
-            while(runner2.next!=null){
-                if(runner2.next.equals(runner1)) {
+            while (runner2.next != null) {
+                if (runner2.next.equals(runner1)) {
                     runner2.next = runner2.next.next;
-                }
-                else{
+                } else {
                     runner2 = runner2.next;
                 }
             }

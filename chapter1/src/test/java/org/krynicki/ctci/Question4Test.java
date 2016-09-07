@@ -3,10 +3,6 @@ package org.krynicki.ctci;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Random;
-
-import static org.testng.Assert.*;
-
 /**
  * Created by K on 2016-08-28.
  */

@@ -3,12 +3,6 @@ package org.krynicki.ctci;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import javax.swing.plaf.synth.SynthTextAreaUI;
-import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
-
-import static org.testng.Assert.*;
-
 /**
  * Created by K on 2016-08-28.
  */
@@ -44,22 +38,22 @@ public class Question2Test extends AbstractChapter1Test {
     @Test
     public void testPermutations() throws Exception {
         char[] value;
-        for(int i=0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             value = randomString();
             Assert.assertTrue(q.isPermutationNonDestructive(value, permute(value)));
         }
 
-        for(int i=0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             value = randomString();
             Assert.assertTrue(q.isPermutationDestructive(value, permute(value)));
         }
 
-        for(int i=0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             value = randomString();
             Assert.assertFalse(q.isPermutationNonDestructive(value, mixup(value)));
         }
 
-        for(int i=0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             value = randomString();
             Assert.assertFalse(q.isPermutationDestructive(value, mixup(value)));
         }
