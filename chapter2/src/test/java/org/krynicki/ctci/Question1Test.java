@@ -3,12 +3,10 @@ package org.krynicki.ctci;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 /**
  * Created by K on 2016-09-05.
  */
-public class Question1Test extends AbstractTestHelper{
+public class Question1Test extends AbstractChapter2TestHelper {
     Question1 q = new Question1();
 
     @Test
