@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 /**
  * Created by K on 2016-09-07.
  */
-public class Question2Test extends AbstractChapter2TestHelper {
+public class Question2Test extends AbstractChapter2Test {
     Question2 q = new Question2();
 
     @Test

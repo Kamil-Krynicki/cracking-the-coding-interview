@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * Created by K on 2016-09-08.
  */
-public class Question4Test extends AbstractChapter2TestHelper {
+public class Question4Test extends AbstractChapter2Test {
     private Question4 q = new Question4();
 
     @Test

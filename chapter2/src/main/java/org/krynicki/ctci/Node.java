@@ -8,9 +8,16 @@ public class Node {
     public Node next;
     public Node prv;
 
+    public Node(int id) {
+        this.id = id;
+        this.next = null;
+        this.prv = null;
+    }
+
     public Node(int id, Node next) {
         this.id = id;
         this.next = next;
+        this.prv = null;
     }
 
     public Node(int id, Node next, Node prv) {
