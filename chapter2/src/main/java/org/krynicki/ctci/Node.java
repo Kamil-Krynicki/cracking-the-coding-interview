@@ -47,6 +47,10 @@ public class Node {
 
     }
 
+    public String deepToString() {
+        return "[" + id + "]" + (this.next == null ? "" : "->" + this.next.deepToString());
+    }
+
     @Override
     public int hashCode() {
         return id;
