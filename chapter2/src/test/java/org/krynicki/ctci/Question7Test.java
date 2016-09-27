@@ -19,9 +19,6 @@ public class Question7Test extends AbstractChapter2Test {
         Node list1 = getNodeList(0, 1, 2, 3, 4, 5);
         Node list2 = getNodeList(6, 7, 8, 9, 10, 11);
 
-        System.out.print(list1.deepToString());
-        System.out.print(list2.deepToString());
-
         Assert.assertNull(q.intersection(list1, list2));
 
         Node middleNode = list2;
@@ -37,10 +34,11 @@ public class Question7Test extends AbstractChapter2Test {
 
         lastNode.next = middleNode;
 
-        System.out.print(list1.deepToString());
-        System.out.print(list2.deepToString());
-
         Assert.assertEquals(q.intersection(list1, list2), middleNode);
+
+        lastNode.next = list2;
+
+        Assert.assertEquals(q.intersection(list1, list2), list2);
 
     }
 
