@@ -17,8 +17,8 @@ public class Question1 {
         int nextFree = 0;
 
         void pushStack(Object data, int stackNumber) {
-            if (!hasSpace()) throw new IndexOutOfBoundsException("No space");
             if (!isValidStack(stackNumber)) throw new IllegalArgumentException("No such stack");
+            if (!hasSpace()) throw new IndexOutOfBoundsException("No space");
 
             Node newNode = new Node(data);
 
@@ -30,8 +30,7 @@ public class Question1 {
 
         Object popStack(int stackNumber) {
             if (!isValidStack(stackNumber)) throw new IllegalArgumentException("No such stack");
-
-            if (nextFree == 0) return null;
+            if (isEmpty()) throw new IndexOutOfBoundsException("Empty");
 
             Object result = stackHead[stackNumber].data;
             Node nextHead = stackHead[stackNumber].next;
@@ -48,15 +47,16 @@ public class Question1 {
             return result;
         }
 
+        private boolean isEmpty() {
+            return nextFree == 0;
+        }
+
         private boolean hasSpace() {
-            return internalData.length > nextFree;
+            return nextFree < internalData.length;
         }
 
         private boolean isValidStack(int stackNumber) {
-            return stackNumber <= 2 && stackNumber >= 0;
+            return stackNumber < NUMBER_OF_STACKS && stackNumber >= 0;
         }
     }
 }
-
-
-

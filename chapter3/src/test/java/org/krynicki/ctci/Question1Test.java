@@ -22,12 +22,10 @@ public class Question1Test extends AbstractChapter3Test {
         stacks.popStack(3);
     }
 
-    @Test()
-    public void shouldReturnNullOnEmptyStack() throws Exception {
+    @Test(expectedExceptions = IndexOutOfBoundsException.class)
+    public void shouldFailOnEmptyStack() throws Exception {
         Question1.ThreeStacks stacks = new Question1.ThreeStacks();
-        Assert.assertNull(stacks.popStack(0));
-        Assert.assertNull(stacks.popStack(1));
-        Assert.assertNull(stacks.popStack(2));
+        stacks.popStack(2);
     }
 
     @Test(expectedExceptions = IndexOutOfBoundsException.class)
@@ -42,8 +40,6 @@ public class Question1Test extends AbstractChapter3Test {
     public void shouldFillAndEmptyOneStack() throws Exception {
         Question1.ThreeStacks stacks = new Question1.ThreeStacks();
 
-        Assert.assertNull(stacks.popStack(0));
-
         stacks.pushStack("A", 0);
         stacks.pushStack("B", 0);
         stacks.pushStack("C", 0);
@@ -57,7 +53,6 @@ public class Question1Test extends AbstractChapter3Test {
         Assert.assertEquals(stacks.popStack(0), "C");
         Assert.assertEquals(stacks.popStack(0), "B");
         Assert.assertEquals(stacks.popStack(0), "A");
-        Assert.assertNull(stacks.popStack(0));
     }
 
     @Test()
