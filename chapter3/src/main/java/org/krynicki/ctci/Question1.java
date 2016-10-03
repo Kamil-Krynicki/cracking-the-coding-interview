@@ -8,7 +8,7 @@ package org.krynicki.ctci;
 // PLUS - much smaller, more efficient and more elegant than the book
 public class Question1 {
     static class ThreeStacks {
-        private static final int ARRAY_SIZE = 20;
+        private final int ARRAY_SIZE = 20;
         private final int NUMBER_OF_STACKS = 3;
 
         Node[] internalData = new Node[ARRAY_SIZE];
