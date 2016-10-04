@@ -3,24 +3,24 @@ package org.krynicki.ctci;
 /**
  * Created by K on 2016-09-01.
  */
-public class Node {
-    public Object data;
-    public Node next;
-    public Node prv;
+public class Node<T> {
+    public T data;
+    public Node<T> next;
+    public Node<T> prv;
 
-    public Node(Object data) {
+    public Node(T data) {
         this.data = data;
         this.next = null;
         this.prv = null;
     }
 
-    public Node(Object data, Node next) {
+    public Node(T data, Node<T> next) {
         this.data = data;
         this.next = next;
         this.prv = null;
     }
 
-    public Node(Object data, Node next, Node prv) {
+    public Node(T data, Node<T> next, Node<T> prv) {
         this.data = data;
         this.next = next;
         this.prv = prv;
@@ -31,7 +31,7 @@ public class Node {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Node node = (Node) o;
+        Node<T> node = (Node) o;
 
         return data == node.data;
 
@@ -41,7 +41,7 @@ public class Node {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Node node = (Node) o;
+        Node<T> node = (Node<T>) o;
 
         return data == node.data && next == null ? node.next == null : next.equals(node.next);
 

@@ -11,8 +11,8 @@ public class Question1 {
         private final int ARRAY_SIZE = 20;
         private final int NUMBER_OF_STACKS = 3;
 
-        Node[] internalData = new Node[ARRAY_SIZE];
-        Node[] stackHead = new Node[NUMBER_OF_STACKS];
+        Node<Object>[] internalData = new Node[ARRAY_SIZE];
+        Node<Object>[] stackHead = new Node[NUMBER_OF_STACKS];
 
         int nextFree = 0;
 
@@ -20,7 +20,7 @@ public class Question1 {
             if (!isValidStack(stackNumber)) throw new IllegalArgumentException("No such stack");
             if (!hasSpace()) throw new IndexOutOfBoundsException("No space");
 
-            Node newNode = new Node(data);
+            Node<Object> newNode = new Node<Object>(data);
 
             newNode.next = stackHead[stackNumber];
             stackHead[stackNumber] = newNode;
@@ -33,7 +33,7 @@ public class Question1 {
             if (isEmpty()) throw new IndexOutOfBoundsException("Empty");
 
             Object result = stackHead[stackNumber].data;
-            Node nextHead = stackHead[stackNumber].next;
+            Node<Object> nextHead = stackHead[stackNumber].next;
 
             nextFree--;
 
