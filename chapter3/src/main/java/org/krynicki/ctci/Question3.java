@@ -66,7 +66,6 @@ public class Question3 {
                 }
             }
         }
-
     }
 
     private static class SimpleStack<T> implements Stack<T> {
