@@ -37,6 +37,16 @@ public class Question3 {
             return result;
         }
 
+        @Override
+        public T peek() {
+            return lastStack.peek();
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return lastStack.isEmpty();
+        }
+
         public T popAt(int stack) {
             if (stack < stacks.size() && stack > 0) {
                 T result = stacks.get(stack).pop();
@@ -87,11 +97,16 @@ public class Question3 {
             return result;
         }
 
+        @Override
+        public T peek() {
+            return root.data;
+        }
+
         public int size() {
             return size;
         }
 
-        private boolean isEmpty() {
+        public boolean isEmpty() {
             return size == 0;
         }
 
