@@ -11,7 +11,6 @@ public class Question4 {
         private Deque<T> leftStack;
         private Deque<T> rightStack;
 
-
         public MyQueue() {
             leftStack = new LinkedList<>();
             rightStack = new LinkedList<>();
