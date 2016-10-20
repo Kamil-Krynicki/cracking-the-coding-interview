@@ -33,11 +33,15 @@ public class DirectedGraph<T> {
         edges.get(from).add(to);
     }
 
-    public Iterable<T> nodes() {
+    public boolean hasNode(T node) {
+        return nodes.contains(node);
+    }
+
+    public Collection<T> nodes() {
         return nodes;
     }
 
-    public Iterable<T> edgesFrom(T node) {
+    public Collection<T> edgesFrom(T node) {
         if(!nodes.contains(node)) {
             return null;
         }
