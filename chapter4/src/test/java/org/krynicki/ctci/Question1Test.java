@@ -7,8 +7,6 @@ import org.testng.annotations.Test;
  * Created by K on 2016-10-20.
  */
 public class Question1Test {
-
-
     private Question1.PathFinder finder = new Question1.PathFinder();
 
     @Test(expectedExceptions = NullPointerException.class)
