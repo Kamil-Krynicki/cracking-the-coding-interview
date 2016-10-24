@@ -6,11 +6,11 @@ package org.krynicki.ctci;
 public class Question2 {
     static class ArrayToTree<Integer> {
         public TreeNode<Integer> toTree(Integer[] input) {
-            return toTree(input, 0, input.length);
+            return toTree(input, 0, input.length - 1);
         }
 
         private TreeNode<Integer> toTree(Integer[] input, int from, int to) {
-            if (to <= from) {
+            if (to < from) {
                 return null;
             }
 
