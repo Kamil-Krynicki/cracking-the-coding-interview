@@ -19,8 +19,8 @@ public class Question2Test {
         TreeNode<Integer> integerTreeNode = converter.toTree(new Integer[]{3});
 
         Assert.assertEquals(integerTreeNode.data, (Integer)3);
-        Assert.assertNull(integerTreeNode.left);
-        Assert.assertNull(integerTreeNode.right);
+        Assert.assertNull(integerTreeNode.left());
+        Assert.assertNull(integerTreeNode.right());
     }
 
     @Test
@@ -28,8 +28,8 @@ public class Question2Test {
         TreeNode<Integer> integerTreeNode = converter.toTree(new Integer[]{1, 2, 3});
 
         Assert.assertEquals(integerTreeNode.data, (Integer)2);
-        Assert.assertEquals(integerTreeNode.left.data, (Integer)1);
-        Assert.assertEquals(integerTreeNode.right.data, (Integer)3);
+        Assert.assertEquals(integerTreeNode.left().data, (Integer)1);
+        Assert.assertEquals(integerTreeNode.right().data, (Integer)3);
     }
 
     @Test
@@ -37,8 +37,8 @@ public class Question2Test {
         TreeNode<Integer> integerTreeNode = converter.toTree(new Integer[]{1, 2, 3, 4});
 
         Assert.assertEquals(integerTreeNode.data, (Integer)2);
-        Assert.assertEquals(integerTreeNode.left.data, (Integer)1);
-        Assert.assertEquals(integerTreeNode.right.data, (Integer)3);
-        Assert.assertEquals(integerTreeNode.right.right.data, (Integer)4);
+        Assert.assertEquals(integerTreeNode.left().data, (Integer)1);
+        Assert.assertEquals(integerTreeNode.right().data, (Integer)3);
+        Assert.assertEquals(integerTreeNode.right().right().data, (Integer)4);
     }
 }

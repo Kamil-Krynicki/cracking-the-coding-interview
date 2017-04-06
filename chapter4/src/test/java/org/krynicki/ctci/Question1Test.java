@@ -23,8 +23,8 @@ public class Question1Test {
     public void shouldReturnFalseOnNotExistingNodes() throws Exception {
         DirectedGraph<Integer> graph = new DirectedGraph<>();
 
-        graph.add(1);
-        graph.add(2);
+        graph.addNode(1);
+        graph.addNode(2);
         graph.addEdge(1, 2);
 
         Assert.assertFalse(finder.isPath(graph, 2, 3));
@@ -37,12 +37,12 @@ public class Question1Test {
     public void shouldFindPath() throws Exception {
         DirectedGraph<Integer> graph = new DirectedGraph<>();
 
-        graph.add(1);
-        graph.add(2);
-        graph.add(3);
-        graph.add(4);
-        graph.add(5);
-        graph.add(6);
+        graph.addNode(1);
+        graph.addNode(2);
+        graph.addNode(3);
+        graph.addNode(4);
+        graph.addNode(5);
+        graph.addNode(6);
         graph.addEdge(1, 2);
         graph.addEdge(1, 3);
         graph.addEdge(1, 4);

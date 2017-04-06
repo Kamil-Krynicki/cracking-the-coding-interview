@@ -9,21 +9,25 @@ import java.util.List;
  */
 public class Question3 {
     static class LevelList {
-        public List<List<TreeNode<?>>> levels(TreeNode<?> root) {
-            ArrayList<List<TreeNode<?>>> result = new ArrayList<>();
+        public <T> List<List<TreeNode<T>>> levels(TreeNode<T> root) {
+            ArrayList<List<TreeNode<T>>> result = new ArrayList<>();
             levels(root, result, 0);
             return result;
         }
 
-        private void levels(TreeNode<?> root, List<List<TreeNode<?>>> result, int level) {
-            if (result.get(level) == null) {
-                result.add(new LinkedList<TreeNode<?>>());
+        private <T> void levels(TreeNode<T> root, List<List<TreeNode<T>>> result, int level) {
+            if(root == null) {
+                return;
+            }
+
+            if (result.size() <= level) {
+                result.add(new LinkedList<TreeNode<T>>());
             }
 
             result.get(level).add(root);
 
-            levels(root.left, result, level + 1);
-            levels(root.right, result, level + 1);
+            levels(root.left(), result, level + 1);
+            levels(root.right(), result, level + 1);
         }
     }
 }

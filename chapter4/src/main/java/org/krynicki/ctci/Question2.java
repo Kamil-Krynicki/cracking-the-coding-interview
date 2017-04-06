@@ -1,5 +1,7 @@
 package org.krynicki.ctci;
 
+import static org.krynicki.ctci.TreeNode.node;
+
 /**
  * Created by K on 2016-10-20.
  */
@@ -16,9 +18,9 @@ public class Question2 {
 
             int middle = (to + from) / 2;
 
-            TreeNode<Integer> result = new TreeNode<>(input[middle]);
-            result.left = toTree(input, from, middle - 1);
-            result.right = toTree(input, middle + 1, to);
+            TreeNode<Integer> result = node(input[middle]);
+            result.withLeft(toTree(input, from, middle - 1));
+            result.withRight(toTree(input, middle + 1, to));
 
             return result;
         }

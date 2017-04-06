@@ -6,46 +6,36 @@ import java.util.*;
  * Created by K on 2016-10-19.
  */
 public class DirectedGraph<T> {
-    Set<T> nodes;
-    Map<T, List<T>> edges;
+    private final Set<T> nodes;
+    private final Map<T, Set<T>> edges;
 
     public DirectedGraph() {
         this.nodes = new HashSet<>();
         this.edges = new HashMap<>();
     }
 
-    public void add(T node) {
-        if(!nodes.contains(node)) {
+    public void addNode(T node) {
+        if(!hasNode(node)) {
             nodes.add(node);
-            edges.put(node, new LinkedList<T>());
+            edges.put(node, new HashSet<T>());
         }
     }
 
     public void addEdge(T from, T to) {
-        if(!nodes.contains(from)) {
-            return;
+        if (hasNode(from) && hasNode(to)) {
+            edges.get(from).add(to);
         }
+    }
 
-        if(!nodes.contains(to)) {
-            return;
-        }
+    public Set<T> nodes() {
+        return Collections.unmodifiableSet(nodes);
+    }
 
-        edges.get(from).add(to);
+    public Set<T> neighbours(T node) {
+        return hasNode(node) ?  edges.get(node) : Collections.<T>emptySet();
     }
 
     public boolean hasNode(T node) {
         return nodes.contains(node);
-    }
-
-    public Collection<T> nodes() {
-        return nodes;
-    }
-
-    public Collection<T> edgesFrom(T node) {
-        if(!nodes.contains(node)) {
-            return null;
-        }
-
-        return edges.get(node);
     }
 }

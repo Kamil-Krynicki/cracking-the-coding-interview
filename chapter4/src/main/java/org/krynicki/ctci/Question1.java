@@ -5,48 +5,49 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Created by K on 2016-10-19.
  */
 public class Question1 {
     static class PathFinder {
-        boolean isPath(DirectedGraph<Integer> graph, Integer from, Integer to) {
-            if (graph == null || from == null || to == null) {
-                throw new NullPointerException();
-            }
+        <T> boolean isPath(DirectedGraph<T> graph, T from, T to) {
+            checkNotNull(graph);
+            checkNotNull(from);
+            checkNotNull(to);
 
-
-            if (!graph.nodes().contains(from)) {
+            if (!graph.nodes().contains(from) || !graph.nodes().contains(to)) {
                 return false;
             }
 
-            if (!graph.nodes().contains(to)) {
-                return false;
-            }
-
-            if (from == to) {
+            if (from.equals(to)) {
                 return true;
             }
 
-            Queue<Integer> reachable = new LinkedList<>();
-            Set<Integer> visited = new HashSet<>();
+            Queue<T> reachable = new LinkedList<>();
+            Set<T> visited = new HashSet<>();
 
             reachable.add(from);
 
-            Integer toVisit;
+            T visiting;
 
             while (!reachable.isEmpty()) {
                 if (reachable.contains(to)) {
                     return true;
                 }
 
-                toVisit = reachable.poll();
+                visiting = reachable.poll();
 
-                visited.add(toVisit);
+                for(T neighbour : graph.neighbours(visiting)) {
+                    if(!visited.contains(neighbour)) {
+                        reachable.add(neighbour);
+                    }
+                }
 
-                reachable.addAll(graph.edgesFrom(toVisit));
-                reachable.removeAll(visited);
+                visited.add(visiting);
             }
+
             return false;
         }
     }
