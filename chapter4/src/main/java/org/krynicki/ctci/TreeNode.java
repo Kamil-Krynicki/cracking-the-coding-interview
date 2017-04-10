@@ -3,9 +3,9 @@ package org.krynicki.ctci;
 /**
  * Created by K on 2016-10-20.
  */
-public class TreeNode<T> {
+public class TreeNode<T extends Comparable<T>> {
 
-    public static <T> TreeNode<T> node(T value) {
+    public static <T extends Comparable<T>> TreeNode<T> node(T value) {
         return new TreeNode<>(value);
     }
 
