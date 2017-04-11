@@ -12,18 +12,9 @@ public class Question5 {
         if(root == null)
             return true;
 
-        int currentData = root.data;
-        if(currentData < min || currentData > max)
+        if(root.data < min || root.data > max)
             return false;
 
-        TreeNode<Integer> l = root.left();
-        if (l != null && currentData < l.data)
-            return false;
-
-        TreeNode<Integer> r = root.right();
-        if (r != null && currentData > r.data)
-            return false;
-
-        return isValidBst(l, min, currentData) && isValidBst(r, currentData, max);
+        return isValidBst(root.left(), min, root.data) && isValidBst(root.right(), root.data, max);
     }
 }
