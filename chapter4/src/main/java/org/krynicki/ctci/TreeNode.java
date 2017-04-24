@@ -1,20 +1,25 @@
 package org.krynicki.ctci;
 
+import sun.reflect.generics.tree.Tree;
+
 /**
  * Created by K on 2016-10-20.
  */
 public class TreeNode<T> {
 
     public static <T> TreeNode<T> node(T value) {
-        return new TreeNode<>(value);
+        return new TreeNode<>(value, null);
     }
 
     public T data;
 
+    private TreeNode<T> parent;
+
     private TreeNode<T> l;
     private TreeNode<T> r;
 
-    public TreeNode(T data) {
+    private TreeNode(T data, TreeNode<T> parent) {
+        this.parent = parent;
         this.data = data;
     }
 
@@ -26,13 +31,17 @@ public class TreeNode<T> {
         return r;
     }
 
+    public TreeNode<T> parent() {return parent;}
+
     public TreeNode<T> withLeft(TreeNode<T> left) {
         this.l = left;
+        left.parent = this;
         return this;
     }
 
     public TreeNode<T> withRight(TreeNode<T> right) {
         this.r = right;
+        right.parent = this;
         return this;
     }
 
