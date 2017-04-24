@@ -35,13 +35,15 @@ public class TreeNode<T> {
 
     public TreeNode<T> withLeft(TreeNode<T> left) {
         this.l = left;
-        left.parent = this;
+        if(left!=null)
+            left.parent = this;
         return this;
     }
 
     public TreeNode<T> withRight(TreeNode<T> right) {
         this.r = right;
-        right.parent = this;
+        if(right!=null)
+            right.parent = this;
         return this;
     }
 
