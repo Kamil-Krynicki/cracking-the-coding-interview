@@ -1,7 +1,5 @@
 package org.krynicki.ctci;
 
-import sun.reflect.generics.tree.Tree;
-
 /**
  * Created by K on 2016-10-20.
  */
@@ -29,6 +27,14 @@ public class TreeNode<T> {
 
     public TreeNode<T> right() {
         return r;
+    }
+
+    public boolean hasLeft() {
+        return l != null;
+    }
+
+    public boolean hasRight() {
+        return r != null;
     }
 
     public TreeNode<T> parent() {return parent;}
