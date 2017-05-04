@@ -5,22 +5,22 @@ package org.krynicki.ctci;
  */
 public class Question10 {
     static class SubTreeChecker {
-        public final <T> boolean isSubTree(TreeNode<T> rootA, TreeNode<T> rootB) {
-            if (isEmpty(rootB))
+        public final <T> boolean isSubTree(TreeNode<T> tree, TreeNode<T> subtree) {
+            if (isEmpty(subtree))
                 return true;
 
-            if (isEmpty(rootA))
+            if (isEmpty(tree))
                 return false;
 
-            return matchTree(rootA, rootB)
-                    || isSubTree(rootA.left(), rootB)
-                    || isSubTree(rootA.right(), rootB);
+            return matchTree(tree, subtree)
+                    || isSubTree(tree.left(), subtree)
+                    || isSubTree(tree.right(), subtree);
         }
 
-        private <T> boolean matchTree(TreeNode<T> rootA, TreeNode<T> rootB) {
-            return isEmpty(rootA) && isEmpty(rootB) || matchNode(rootA, rootB)
-                    && matchTree(rootA.left(), rootB.left())
-                    && matchTree(rootA.right(), rootB.right());
+        private <T> boolean matchTree(TreeNode<T> treeA, TreeNode<T> treeB) {
+            return isEmpty(treeA) && isEmpty(treeB) || matchNode(treeA, treeB)
+                    && matchTree(treeA.left(), treeB.left())
+                    && matchTree(treeA.right(), treeB.right());
 
         }
 
