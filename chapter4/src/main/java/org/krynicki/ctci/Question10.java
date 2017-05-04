@@ -1,33 +1,35 @@
 package org.krynicki.ctci;
 
-import com.google.common.collect.Lists;
-
-import java.util.Deque;
-
 /**
- * Created by kamil.krynicki on 27/04/2017.
+ * Created by kamil.krynicki on 04/05/2017.
  */
 public class Question10 {
-    void findPaths(TreeNode<Integer> root, int value) {
-        innerFind(Lists.<TreeNode<Integer>>newLinkedList(), value, root);
-    }
+    static class SubTreeChecker {
+        public final <T> boolean isSubTree(TreeNode<T> rootA, TreeNode<T> rootB) {
+            if (isEmpty(rootB))
+                return true;
 
-    void innerFind(Deque<TreeNode<Integer>> currentPath, int valueLeft,
-                   TreeNode<Integer> current) {
-        if (current == null)
-            return;
+            if (isEmpty(rootA))
+                return false;
 
-        currentPath.addLast(current);
-        int newValue = valueLeft - current.data;
-
-        if (newValue < 0) {
-            newValue += currentPath.getFirst().data;
-            currentPath.removeFirst();
-        } else if (newValue == 0) {
-            System.out.println(currentPath);
+            return matchTree(rootA, rootB)
+                    || isSubTree(rootA.left(), rootB)
+                    || isSubTree(rootA.right(), rootB);
         }
 
-        innerFind(Lists.newLinkedList(currentPath), newValue, current.left());
-        innerFind(Lists.newLinkedList(currentPath), newValue, current.right());
+        private <T> boolean matchTree(TreeNode<T> rootA, TreeNode<T> rootB) {
+            return isEmpty(rootA) && isEmpty(rootB) || matchNode(rootA, rootB)
+                    && matchTree(rootA.left(), rootB.left())
+                    && matchTree(rootA.right(), rootB.right());
+
+        }
+
+        private <T> boolean matchNode(TreeNode<T> nodeA, TreeNode<T> nodeB) {
+            return !isEmpty(nodeA) && !isEmpty(nodeB) && nodeA.data.equals(nodeB.data);
+        }
+
+        private <T> boolean isEmpty(TreeNode<T> node) {
+            return node == null;
+        }
     }
 }

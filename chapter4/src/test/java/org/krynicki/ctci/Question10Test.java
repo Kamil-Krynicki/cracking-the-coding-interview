@@ -1,17 +1,21 @@
 package org.krynicki.ctci;
 
+import junit.framework.Assert;
 import org.testng.annotations.Test;
 
+import static org.krynicki.ctci.Question10.SubTreeChecker;
 import static org.krynicki.ctci.TreeNode.node;
 
 public class Question10Test {
     @Test
-    public void shouldFindSuccessorOfLast() {
-        TreeNode<Integer> root =
-                node(3).withLeft(node(8)).withRight(node(2));
+    public void minimumExample() {
+        TreeNode<Integer> tree1 =
+                node(2).withLeft(node(2)).withRight(node(2).withRight(node(4).withLeft(node(3))));
 
-        Question10 alg = new Question10();
+        TreeNode<Integer> tree2 = node(2).withRight(node(4).withLeft(node(3)));
 
-        alg.findPaths(root, 5);
+        SubTreeChecker checker = new SubTreeChecker();
+
+        Assert.assertTrue(checker.isSubTree(tree1, tree2));
     }
 }
