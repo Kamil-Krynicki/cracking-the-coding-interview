@@ -4,12 +4,12 @@ package org.krynicki.ctci;
  * Created by kamil.krynicki on 04/05/2017.
  */
 public class Question1 {
-    public byte replace(byte in, byte with, int i, int j) {
-        byte mask = (byte) 0xFF;
-        mask = (byte) (mask << j);
-        mask = (byte) (mask >> (j - i));
-        mask = (byte) ~mask;
+    public int replace(int in, int with, int i, int j) {
+        int mask = 0xFFFFFFF;
+        mask = (mask << j);
+        mask = (mask >> (j - i));
+        mask = ~mask;
 
-        return (byte) (in * mask + (with << i));
+        return (in * mask + (with << i));
     }
 }
