@@ -4,23 +4,57 @@ package org.krynicki.ctci;
  * Created by kamil.krynicki on 09/05/2017.
  */
 public class Question4 {
-    int nextSmallestSameOnes(int in) {
-        char[] bits = Integer.toBinaryString(in).toCharArray();
+    public static class BitMagic {
+        public int nextSmallestSameOnes(int in) {
+            if (isMinValue(in))
+                throw new IllegalArgumentException();
 
-        int i = oneToZeroIndex(bits);
+            int result = in;
+            int i = findFlipIndex(result, 0, 1);
 
-        bits[i] = '1';
-        bits[i + 1] = '0';
+            result ^= mask(i - 1);
 
-        return in;
-    }
+            return result;
+        }
 
-    private int oneToZeroIndex(char[] bits) {
-        int i = bits.length - 1;
+        public int prvLargestSameOnes(int in) {
+            if (isMinValue(in) || isMaxValue(in))
+                throw new IllegalArgumentException();
 
-        while(bits[i] == '0') i--;
-        while(bits[i] == '1') i--;
+            int result = in;
+            int i = findFlipIndex(result, 1, 0);
 
-        return i;
+            result ^= mask(i - 1);
+
+            return result;
+        }
+
+        private boolean isMinValue(int in) {
+            return in == 0;
+        }
+
+        private boolean isMaxValue(int in) {
+            return ((in + 1) & in) == 0;
+        }
+
+        private int findFlipIndex(int bits, int flipFrom, int flipTo) {
+            int i = 0;
+
+            while (bits > 0 && (bits & 1) == flipFrom) {
+                bits >>>= 1;
+                i++;
+            }
+
+            while (bits > 0 && (bits & 1) == flipTo) {
+                bits >>>= 1;
+                i++;
+            }
+
+            return i;
+        }
+
+        private int mask(int i) {
+            return 0b11 << i;
+        }
     }
 }
