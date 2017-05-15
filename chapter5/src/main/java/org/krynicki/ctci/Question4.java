@@ -5,28 +5,45 @@ package org.krynicki.ctci;
  */
 public class Question4 {
     public static class BitMagic {
-        public int nextSmallestSameOnes(int in) {
+        public int nextSmallestSameOnes2(int in) {
             if (isMinValue(in))
                 throw new IllegalArgumentException();
 
             int result = in;
-            int i = findFlipIndex(result, 0, 1);
 
-            result ^= mask(i - 1);
+            int zeros = countConsecutive(in, 0, 0);
+            int ones = countConsecutive(in, 1, zeros);
+
+            int mask = mask(ones + zeros);
+            int mask2 = mask(ones - 1);
+
+            result &= ~(mask - 1);
+            result |= mask;
+            result |= mask2 - 1;
 
             return result;
         }
 
-        public int prvLargestSameOnes(int in) {
+        public int prvLargestSameOnes2(int in) {
             if (isMinValue(in) || isMaxValue(in))
                 throw new IllegalArgumentException();
 
             int result = in;
-            int i = findFlipIndex(result, 1, 0);
 
-            result ^= mask(i - 1);
+            int ones = countConsecutive(in, 1, 0);
+            int zeros = countConsecutive(in, 0, ones);
+
+            int mask = mask(ones + zeros + 1);
+            int mask2 = (mask(ones + 1) - 1) << zeros - 1;
+
+            result &= ~(mask - 1);
+            result |= mask2;
 
             return result;
+        }
+
+        private int mask(int i) {
+            return 0b1 << i;
         }
 
         private boolean isMinValue(int in) {
@@ -37,24 +54,22 @@ public class Question4 {
             return ((in + 1) & in) == 0;
         }
 
-        private int findFlipIndex(int bits, int flipFrom, int flipTo) {
-            int i = 0;
+        private int countConsecutive(int number, int value, int startIndex) {
+            number = consume(number, startIndex);
 
-            while (bits > 0 && (bits & 1) == flipFrom) {
-                bits >>>= 1;
-                i++;
+            int result = 0;
+            while (number > 0 && (number & 1) == value) {
+                number >>>= 1;
+                result++;
             }
 
-            while (bits > 0 && (bits & 1) == flipTo) {
-                bits >>>= 1;
-                i++;
-            }
-
-            return i;
+            return result;
         }
 
-        private int mask(int i) {
-            return 0b11 << i;
+        private int consume(int number, int bits) {
+            int rewind = bits;
+            while (rewind-- > 0) number >>>= 1;
+            return number;
         }
     }
 }
