@@ -12,8 +12,7 @@ public class Question2 {
     private int maxY;
     private int maxX;
 
-    // O(n^3) because of String management in Java
-    // O(n^2) with a buffer / array
+    // O(n^2)
     public String findPath(boolean[][] field) {
         Preconditions.checkNotNull(field);
 
@@ -23,23 +22,36 @@ public class Question2 {
         this.memo = new String[maxY][maxX];
         this.field = field;
 
-        return findPathRec(0, 0, "");
+        return findPathFrom(0, 0);
     }
 
-    private String findPathRec(int x, int y, String steps) {
+    private String findPathFrom(int x, int y) {
         if (!isInBounds(x, y) || !isFree(x, y))
-            return "";
+            return null;
 
         if (memo[y][x] != null)
             return memo[y][x];
 
-        String result = "";
+        if (isGoal(x, y))
+            return memo[y][x] = "";
 
-        if (isGoal(x, y)) result = steps;
-        if (result.isEmpty()) result = findPathRec(x + 1, y, steps + 'R');
-        if (result.isEmpty()) result = findPathRec(x, y + 1, steps + 'D');
+        String result;
 
-        return memo[y][x] = result;
+        result = findPathFrom(x + 1, y);
+
+        if(isValid(result))
+            return memo[y][x] = "R" + result;
+
+        result = findPathFrom(x, y + 1);
+
+        if(isValid(result))
+            return memo[y][x] = "D" + result;
+
+        return null;
+    }
+
+    private boolean isValid(String result) {
+        return result!=null;
     }
 
     private boolean isGoal(int x, int y) {
