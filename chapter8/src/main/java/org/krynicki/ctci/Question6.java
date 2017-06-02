@@ -24,7 +24,7 @@ public class Question6 {
     }
 
     private void move(int diskCount, HanoiStack from, HanoiStack to, HanoiStack buffer) {
-        System.out.println("Moving " + diskCount + " disks from " + from.name() + " to " + to.name());
+        //System.out.println("Moving " + diskCount + " disks from " + from.name() + " to " + to.name());
         if (diskCount == 1) {
             to.push(from.pop());
         } else {

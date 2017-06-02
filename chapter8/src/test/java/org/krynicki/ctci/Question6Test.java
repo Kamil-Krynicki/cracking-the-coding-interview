@@ -11,7 +11,7 @@ public class Question6Test {
 
     @Test
     public void test() {
-        Question6.HanoiStack[] solution = alg.printSolutionForHanoi(20);
+        Question6.HanoiStack[] solution = alg.printSolutionForHanoi(10);
 
         Assert.assertTrue(solution[0].isEmpty());
         Assert.assertTrue(solution[1].isEmpty());
