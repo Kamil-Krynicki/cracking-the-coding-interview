@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * Created by kamil.krynicki on 06/06/2017.
  */
-public class Question8 {
+public class Question9 {
 
     private static final String F_PAREN = "()";
     private static final String L_PAREN = "(";
