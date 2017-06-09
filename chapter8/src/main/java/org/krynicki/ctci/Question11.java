@@ -1,27 +1,35 @@
 package org.krynicki.ctci;
 
+import java.util.Arrays;
+
 /**
  * Created by kamil.krynicki on 08/06/2017.
  */
 public class Question11 {
 
-    private static int[] coins = {1, 5, 10, 25};
-    private long[] memo;
+    private static int[] coins = {25, 10, 5, 1};
+    private int[][] memo;
 
-    public long centCombinations(int n) {
-        this.memo = new long[n + 1];
-        this.memo[0] = 1;
-        return centCombinationsRec(n);
+    public int centCombinations(int cents) {
+        this.memo = new int[cents + 1][coins.length - 1];
+        Arrays.fill(this.memo[0], 1);
+        return centCombinations(cents, 0);
     }
 
-    private long centCombinationsRec(int n) {
-        if (n < 0)
+    private int centCombinations(int cents, int coin) {
+        if (cents < 0)
             return 0;
 
-        if (memo[n] == 0)
-            for (int coin : coins)
-                memo[n] += centCombinationsRec(n - coin);
+        if (coins[coin] == 1)
+            return 1;
 
-        return memo[n];
+        if (memo[cents][coin] == 0) {
+            int c = cents;
+            do {
+                memo[cents][coin] += centCombinations(c, coin + 1);
+            } while ((c -= coins[coin]) >= 0);
+        }
+
+        return memo[cents][coin];
     }
 }
