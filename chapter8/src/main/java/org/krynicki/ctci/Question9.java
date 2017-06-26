@@ -16,7 +16,7 @@ public class Question9 {
     public void printParenthesis(int n) {
         if (n > 0)
             //System.out.print(pars("", n, 0, new HashSet<>()));
-            System.out.print(pars(n));
+            //System.out.print(pars(n));
     }
 
     // FASTER

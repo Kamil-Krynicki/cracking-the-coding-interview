@@ -7,7 +7,7 @@ public class Question8Test {
     public void test() {
         Question8 kamil = new Question8();
 
-        System.out.println(kamil.permutationsNoRep("aaaaab"));
+        //System.out.println(kamil.permutationsNoRep("aaaaab"));
 
     }
 
