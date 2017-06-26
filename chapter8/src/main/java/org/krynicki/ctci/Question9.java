@@ -14,7 +14,7 @@ public class Question9 {
     private static final String R_PAREN = ")";
 
     public void printParenthesis(int n) {
-        if (n > 0)
+        //if (n > 0)
             //System.out.print(pars("", n, 0, new HashSet<>()));
             //System.out.print(pars(n));
     }
