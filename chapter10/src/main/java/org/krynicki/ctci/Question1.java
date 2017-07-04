@@ -9,8 +9,8 @@ public class Question1 {
         int i = to.length - from.length - 1;
         int j = from.length - 1;
 
-        while (writeIndex >= 0) {
-            if (arrayDone(i) || !arrayDone(j) && from[j] > to[i]) {
+        while (!arrayDone(j)) {
+            if (arrayDone(i) || from[j] > to[i]) {
                 to[writeIndex--] = from[j--];
             } else {
                 to[writeIndex--] = to[i--];
